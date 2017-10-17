@@ -1,3 +1,5 @@
 .vagrant/
 *.log
-data/
+data/*
+!data/execute.sh
+!data/startEnvironment.sh
