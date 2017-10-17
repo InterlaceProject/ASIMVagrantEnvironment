@@ -9,6 +9,11 @@ This vagrant enironment provides an running environment executing the INTERLACE 
   - git https://git-scm.com/downloads
   - vagrant https://www.vagrantup.com/
   
-## Install enironment
+## Install environment
 
-First clone that respository into a directory of your choice.
+First clone that respository into a directory of your choice and then you can setup the virtual machine by executing the following commands:
+
+```bash
+git clone https://github.com/InterlaceProject/ASIMVagrantEnvironment.git
+vagrant up
+```
