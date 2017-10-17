@@ -11,7 +11,7 @@ This vagrant definition provides a running environment for executing the INTERLA
   
 ## Install environment
 
-First clone this respository into a directory of your choice and then you can setup the virtual machine by calling vagrant:
+First clone this respository into a directory of your choice and then you setup the virtual machine by calling vagrant:
 
 ```bash
 git clone https://github.com/InterlaceProject/ASIMVagrantEnvironment.git
