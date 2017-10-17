@@ -1,6 +1,6 @@
 # ASIM Vagrant Environment
 
-This vagrant enironment provides an running environment executing the INTERLACE ASIMs.
+This vagrant definition provides a running environment for executing the INTERLACE ASIMs. During the provisioning process it is setting up an ubuntu vagrant box and installs the necessary components on that box. It is cloning and building the biomics/icef framework as well as the ASIM Specification (InterlaceProject/ASIMSpec) into the data directory where it is finally ready for usage.
 
 ## Prerequisites
 
