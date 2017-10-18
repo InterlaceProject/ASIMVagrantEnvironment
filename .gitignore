@@ -3,3 +3,4 @@
 data/*
 !data/execute.sh
 !data/startEnvironment.sh
+.gitignore~
