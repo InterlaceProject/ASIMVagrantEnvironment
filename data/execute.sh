@@ -1,4 +1,6 @@
 #!/bin/bash
 
-cd ~/project/icef/tools/
-npm start ~/project/ASIMSpec/run.icef localhost 9090
+. asimrc
+
+eval cd $tools
+eval node loadICEF.js $project/ASIMSpec/run.icef localhost 9090
