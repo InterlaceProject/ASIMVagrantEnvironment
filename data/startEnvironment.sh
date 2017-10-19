@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#load config
 . asimrc
 
 #start manager
