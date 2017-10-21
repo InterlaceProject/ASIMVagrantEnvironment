@@ -3,4 +3,5 @@
 data/*
 !data/execute.sh
 !data/startEnvironment.sh
+!data/asimrc
 .gitignore~
