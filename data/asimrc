@@ -1,0 +1,5 @@
+#!/bin/bash
+project=/home/ubuntu/project
+icef=$project/icef
+manager=$icef/manager
+tools=$icef/tools
