@@ -8,7 +8,7 @@ This vagrant definition provides a running environment for executing the INTERLA
   - Virtual Box: https://www.virtualbox.org/
   - git https://git-scm.com/downloads
   - vagrant https://www.vagrantup.com/
-  
+
 ## Install environment
 
 First clone this respository into a directory of your choice and then you setup the virtual machine by calling vagrant:
@@ -20,18 +20,25 @@ vagrant up
 
 ## Execution
 
-To start the manager and one single brapper execute 
-
-```bash
-startEnvironment.sh
-```
-
-in the *data* directory in order to send a icef definition on the manager.
-
-Finally
+Call
 
 ```bash
 execute.sh
 ```
 
-can be used to start the *run.icef* specification of the ASIMSpec definition.
+in the *data* directory in order to let the INTERLACE specifications run.
+
+More detailed: This script starts the manger as well as one brapper. Then it is
+submitting the specification *run.icef* in *data/ASIMSpec/* to the manager.
+When done the script is waiting for a *stop* command.
+
+## Stopping
+
+To stop a executing script call
+
+```bash
+stop.sh
+```
+
+When doing so a *stop* command is send to the executing script ending all
+running processes needed to execute the specifications.
