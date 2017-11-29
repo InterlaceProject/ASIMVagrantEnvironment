@@ -1,5 +1,16 @@
 #!/bin/bash
 
+function quit {
+      echo "stop" > ~/in
+      echo "stopping ..."
+      sleep 2s
+      kill $(<~/pids) 2>/dev/null
+      rm ~/in ~/cmdfifo ~/pids
+
+      echo "done."
+      exit 0
+}
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . $DIR/asimrc
 
@@ -14,7 +25,7 @@ echo $! > ~/pids
 sleep 5
 eval cd $icef
 
-###TODO: run brapper
+#run brapper in background
 if [ ! -p in ]; then
     mkfifo ~/in
 fi
@@ -37,19 +48,12 @@ fi
 
 while true
 do
-  while read cmd
+  while read -u 3 -r cmd
   do
     echo "read: $cmd"
     if [ "$cmd" = "stop" ]
     then
-      echo "stop" > ~/in
-      echo "stopping ..."
-      sleep 2s
-      kill $(<~/pids) 2>/dev/null
-      rm ~/in ~/cmdfifo ~/pids
-
-      echo "done."
-      exit 0
+      quit
     fi
-  done < ~/cmdfifo
+  done 3< ~/cmdfifo
 done
