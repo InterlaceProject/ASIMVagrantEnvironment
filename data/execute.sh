@@ -46,14 +46,16 @@ if [ ! -p in ]; then
     mkfifo ~/cmdfifo
 fi
 
+trap quit 2
+
 while true
 do
-  while read -u 3 -r cmd
+  while read cmd
   do
     echo "read: $cmd"
     if [ "$cmd" = "stop" ]
     then
       quit
     fi
-  done 3< ~/cmdfifo
+  done < ~/cmdfifo
 done

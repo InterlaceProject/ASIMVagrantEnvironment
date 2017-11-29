@@ -30,7 +30,8 @@ in the *data* directory in order to let the INTERLACE specifications run.
 
 More detailed: This script starts the manger as well as one brapper. Then it is
 submitting the specification *run.icef* in *data/ASIMSpec/* to the manager.
-When done the script is waiting for a *stop* command.
+When done the script is waiting for a *stop* command or may also be stopped using
+ctrl + c.
 
 ## Stopping
 
