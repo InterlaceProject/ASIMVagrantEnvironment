@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# execute on quit
 function quit {
       echo "stop" > ~/in
       echo "stopping ..."
@@ -11,43 +12,45 @@ function quit {
       exit 0
 }
 
+#set environment variables
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . $DIR/asimrc
 
 rm -f ~/in ~/cmdfifo ~/pids
 
-#start manager
+# start manager
 eval cd $manager
 node casima.js &
 echo $! > ~/pids
 
-#wait for manager beeing ready
+# wait for manager beeing ready
 sleep 5
 eval cd $icef
 
-#run brapper in background
+# create fifo brapper
 if [ ! -p in ]; then
     mkfifo ~/in
 fi
+# run brapper in background
 ((tail -f ~/in & echo $!>&3) 3>>~/pids) | java -jar coreASIM/org.coreasim.biomics.wrapper/target/brapper.jar \
 	-m localhost -mp 9090 2>&1 &
 echo $! >> ~/pids
 
-####load specification
+#load specification run.icef
 sleep 5s; \
   echo "-------------------- submitting icef to manager -------------------"; \
   eval cd $tools; \
   eval node loadICEF.js $project/ASIMSpec/run.icef localhost 9090
 
-### some stdout logging
-echo ~/pids
-
+# create fifo for commands
 if [ ! -p in ]; then
     mkfifo ~/cmdfifo
 fi
 
+# execute quit function on ctrl + c
 trap quit 2
 
+# wait for stop command
 while true
 do
   while read cmd
