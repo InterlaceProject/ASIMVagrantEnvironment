@@ -26,12 +26,7 @@ function check_vagrant_status {
     running)
       execute_asim_specs
     ;;
-    poweroff)
-      start_asim_vm
-      pause
-      execute_asim_specs
-    ;;
-    aborted)
+    poweroff | aborted | not_created)
       start_asim_vm
       pause
       execute_asim_specs
