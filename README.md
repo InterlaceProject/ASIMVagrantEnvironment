@@ -26,12 +26,23 @@ Call
 execute.sh
 ```
 
-in the *data* directory in order to let the INTERLACE specifications run.
+in the main directory in order to let the INTERLACE specifications run.
 
-More detailed: This script starts the manger as well as one brapper. Then it is
-submitting the specification *run.icef* in *data/ASIMSpec/* to the manager.
-When done the script is waiting for a *stop* command or may also be stopped using
-ctrl + c.
+More detailed:
+
+  1) On the very first execution the script is provisioning a virtual machine
+  based on ubuntu by using *vagrant up*
+  2) If the virtual machine is not yet running it tries to start the virtual
+  machine.
+  3) If the VM is running the script *data/execute.sh* is called on the guest
+  vm.
+
+The actual execution:
+
+The script *data/execute.sh* starts the icef manger as well as one brapper. Then
+it is submitting the specification *run.icef* in *data/ASIMSpec/* to the manager.
+When done the script is waiting for a *stop* command or may also be stopped
+using **ctrl + c**.
 
 ## Stopping
 
@@ -40,6 +51,7 @@ To stop a executing script call
 ```bash
 stop.sh
 ```
+or just press **ctrl + c** in the window *data/execute.sh* is running.
 
-When doing so a *stop* command is send to the executing script ending all
-running processes needed to execute the specifications.
+When calling *stop.sh* a stopping command is send to the executing script,
+ending all running processes needed to execute the specifications.
