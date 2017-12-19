@@ -29,11 +29,11 @@ in the main directory in order to let the INTERLACE specifications run.
 
 More detailed:
 
-  1) On the very first execution the script is provisioning a virtual machine
+  1. On the very first execution the script is provisioning a virtual machine
   based on ubuntu by using *vagrant up*
-  2) If the virtual machine is not yet running it tries to start the virtual
+  2. If the virtual machine is not yet running it tries to start the virtual
   machine.
-  3) If the VM is running the script *data/execute.sh* is called on the guest
+  3. If the VM is running the script *data/execute.sh* is called on the guest
   vm.
 
 The actual execution:
