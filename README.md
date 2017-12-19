@@ -11,11 +11,10 @@ This vagrant definition provides a running environment for executing the INTERLA
 
 ## Install environment
 
-First clone this respository into a directory of your choice and then you setup the virtual machine by calling vagrant:
+First clone this respository into a directory of your choice:
 
 ```bash
 git clone https://github.com/InterlaceProject/ASIMVagrantEnvironment.git
-vagrant up
 ```
 
 ## Execution
@@ -39,8 +38,8 @@ More detailed:
 
 The actual execution:
 
-The script *data/execute.sh* starts the icef manger as well as one brapper. Then
-it is submitting the specification *run.icef* in *data/ASIMSpec/* to the manager.
+The script *data/execute.sh* starts the icef manager as well as one brapper. Then
+it is submitting the specification (*run.icef*) located in *data/ASIMSpec/* to the manager.
 When done the script is waiting for a *stop* command or may also be stopped
 using **ctrl + c**.
 
