@@ -45,7 +45,7 @@ using **ctrl + c**.
 
 ## Stopping
 
-To stop a executing script call
+To stop an executing script call
 
 ```bash
 stop.sh
