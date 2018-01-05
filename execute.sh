@@ -11,7 +11,7 @@ function start_asim_vm {
 
 function execute_asim_specs {
   echo "------ execute asim on guest"
-  vagrant ssh -c "'${project}/execute.sh'"
+  vagrant ssh -c "'${guestscript}'"
   return $?
 }
 

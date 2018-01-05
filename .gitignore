@@ -1,6 +1,7 @@
 .vagrant/
 *.log
 data/*
+!data/executeOnGuest.sh
 !data/execute.sh
 !data/stop.sh
 !data/asimrc
