@@ -2,6 +2,6 @@
 *.log
 data/*
 !data/execute.sh
-!data/startEnvironment.sh
+!data/stop.sh
 !data/asimrc
 .gitignore~

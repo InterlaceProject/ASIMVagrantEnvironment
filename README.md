@@ -8,30 +8,49 @@ This vagrant definition provides a running environment for executing the INTERLA
   - Virtual Box: https://www.virtualbox.org/
   - git https://git-scm.com/downloads
   - vagrant https://www.vagrantup.com/
-  
+
 ## Install environment
 
-First clone this respository into a directory of your choice and then you setup the virtual machine by calling vagrant:
+First clone this respository into a directory of your choice:
 
 ```bash
 git clone https://github.com/InterlaceProject/ASIMVagrantEnvironment.git
-vagrant up
 ```
 
 ## Execution
 
-To start the manager and one single brapper execute 
-
-```bash
-startEnvironment.sh
-```
-
-in the *data* directory in order to send a icef definition on the manager.
-
-Finally
+Call
 
 ```bash
 execute.sh
 ```
 
-can be used to start the *run.icef* specification of the ASIMSpec definition.
+in the main directory in order to let the INTERLACE specifications run.
+
+More detailed:
+
+  1. On the very first execution the script is provisioning a virtual machine
+  based on ubuntu by using *vagrant up*
+  2. If the virtual machine is not yet running it tries to start the virtual
+  machine.
+  3. If the VM is running the script *data/execute.sh* is called on the guest
+  vm.
+
+The actual execution:
+
+The script *data/execute.sh* starts the icef manager as well as one brapper. Then
+it is submitting the specification (*run.icef*) located in *data/ASIMSpec/* to the manager.
+When done the script is waiting for a *stop* command or may also be stopped
+using **ctrl + c**.
+
+## Stopping
+
+To stop a executing script call
+
+```bash
+stop.sh
+```
+or just press **ctrl + c** in the window *data/execute.sh* is running.
+
+When calling *stop.sh* a stopping command is send to the executing script,
+ending all running processes needed to execute the specifications.

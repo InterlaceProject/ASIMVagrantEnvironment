@@ -101,5 +101,6 @@ Vagrant.configure("2") do |config|
 
     #symlinks to project
     cd /home/ubuntu/; ln -s /vagrant-data/ project
+    cd /vagrant-data/; chmod a+x asimrc execute.sh stop.sh
   SHELL
 end
